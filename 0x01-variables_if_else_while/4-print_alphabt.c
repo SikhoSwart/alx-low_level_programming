@@ -12,7 +12,6 @@ int main(void)
 	{
 		if (alph == 101 || alph == 113)
 		{
-			alph++;
 			continue;
 		}
 		putchar(alph);
