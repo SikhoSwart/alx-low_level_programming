@@ -19,23 +19,20 @@ int main(void)
 			printf(" ");
 			continue;
 		}
-		else if (i % 3 == 0)
+		else if (i % 3 == 0 && i % 5 != 0)
 		{
 			printf("Fizz");
 			printf(" ");
 			continue;
 		}
-		else if (i % 5 == 0)
+		else if (i % 5 == 0 && i % 3 != 0)
 		{
 			printf("Buzz");
 			printf(" ");
 			continue;
 		}
 		printf("%d", i);
-		if (i < 100)
-		{
-			printf(" ");
-		}
+		printf(" ");
 	}
 	printf("\n");
 	return (0);
