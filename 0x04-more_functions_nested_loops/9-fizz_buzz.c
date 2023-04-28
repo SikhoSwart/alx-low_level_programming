@@ -15,24 +15,20 @@ int main(void)
 	{
 		if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf("FizzBuzz");
-			printf(" ");
-			continue;
+			printf("FizzBuzz ");
 		}
-		else if (i % 3 == 0 && i % 5 != 0)
+		else if (i % 3 == 0)
 		{
-			printf("Fizz");
-			printf(" ");
-			continue;
+			printf("Fizz ");
 		}
-		else if (i % 5 == 0 && i % 3 != 0)
+		else if (i % 5 == 0)
 		{
-			printf("Buzz");
-			printf(" ");
-			continue;
+			printf("Buzz ");
 		}
-		printf("%d", i);
-		printf(" ");
+		else
+		{
+			printf("%d ", i);
+		}
 	}
 	printf("\n");
 	return (0);
