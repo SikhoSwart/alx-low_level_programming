@@ -9,13 +9,12 @@
 char *cap_string(char *str)
 {
 	int i, j;
-	int arr[] = {9, 32, 10, 33, 59, 44, 46, 63, 34, 40, 41, 123, 125};
+	int arr[] = {9, 10, 32, 33, 59, 46, 44, 63, 34, 40, 41, 123, 125};
 
-
-
-	for (i = 0; str[i] != '\0'; i++)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if (str[i] >= 97 && str[i] <= 122)
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
 			if (i == 0)
 			{
@@ -23,7 +22,7 @@ char *cap_string(char *str)
 			}
 			else
 			{
-				for (j = 0; j <= 12; j++  )
+				for (j = 0; j <= 12; j++)
 				{
 					if (arr[j] == str[i - 1])
 					{
@@ -32,6 +31,7 @@ char *cap_string(char *str)
 				}
 			}
 		}
+		i++;
 	}
 	return (str);
 }
