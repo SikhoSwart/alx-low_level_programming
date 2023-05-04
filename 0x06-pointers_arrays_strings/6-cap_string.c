@@ -6,32 +6,32 @@
  *
  * Return: capitalized string
  */
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
 	int i, j;
-	int arr[] = {9, 32, 10, 33, 59, 44, 46, 63, 34, 40, 41, 123, 125};
+	int a[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
-
-
-	for (i = 0; str[i] != '\0'; i++)
+	i = 0;
+	while (*(s + i) != '\0')
 	{
-		if (str[i] >= 97 && str[i] <= 122)
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
 			if (i == 0)
 			{
-				str[i] = str[i] - 32;
+				*(s + i) = *(s + i) - 32;
 			}
 			else
 			{
-				for (j = 0; j <= 12; j++  )
+				for (j = 0; j <= 12; j++)
 				{
-					if (arr[j] == str[i - 1])
+					if (a[j] == *(s + i - 1))
 					{
-						str[i] = str[i] - 32; 
+						*(s + i) = *(s + i) - 32;
 					}
 				}
 			}
 		}
+		i++;
 	}
-	return (str);
+	return (s);
 }
