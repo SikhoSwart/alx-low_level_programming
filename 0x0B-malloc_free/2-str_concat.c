@@ -13,7 +13,11 @@ char *str_concat(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
+	{
+		return (NULL);
+	}
+	if (s2 == NULL)
 	{
 		return (NULL);
 	}
@@ -37,6 +41,10 @@ char *str_concat(char *s1, char *s2)
 			conc_str[i] = s2[j];
 			i++;
 		}
+	}
+	else if (conc_str == NULL)
+	{
+		return (NULL);
 	}
 	conc_str[i] = '\0';
 	return (conc_str);
