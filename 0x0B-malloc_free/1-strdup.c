@@ -8,7 +8,7 @@
 char *_strdup(char *str)
 {
 	int i, j;
-	char *dupl_str;
+	char *dupl_str = NULL;
 
 	if (str == NULL)
 	{
@@ -26,6 +26,10 @@ char *_strdup(char *str)
 		{
 			dupl_str[i] = str[i];
 		}
+	}
+	else 
+	{
+		return (NULL);
 	}
 	dupl_str[i] = '\0';
 	return (dupl_str);
