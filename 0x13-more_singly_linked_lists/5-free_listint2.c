@@ -18,7 +18,7 @@ void free_listint2(listint_t **head)
 			*head = tmp;
 		}
 	}
-	else
+	else if (head == NULL)
 	{
 		return;
 	}
