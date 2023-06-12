@@ -23,8 +23,7 @@ int main(int argc, char *argv[])
 	txt_cp = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (txt_cp == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
 	while (rd == 1024)
 	{
@@ -42,13 +41,11 @@ int main(int argc, char *argv[])
 	}
 	if (close(txt) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt), exit(100);
 	}
 	if (close(txt_cp) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt_cp);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt_cp), exit(100);
 	}
 	return (0);
 }
