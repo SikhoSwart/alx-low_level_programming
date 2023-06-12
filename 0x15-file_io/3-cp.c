@@ -9,11 +9,10 @@
 int main(int argc, char *argv[])
 {
 	int txt, txt_cp;
-	int buffer, wr;
+	ssize_t rd, wr;
 	char buff[1024];
 
-	buffer = 1024;
-	wr = 0;
+	rd = 1024;
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
@@ -24,23 +23,22 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	txt_cp = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	txt_cp = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (txt_cp == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		close (txt_cp);
 		exit(99);
 	}
-	while (buffer == 1024)
+	while (rd == 1024)
 	{
-		buffer = read(txt, buff, 1024);
-		if (buffer == -1)
+		rd = read(txt, buff, 1024);
+		if (rd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
-		wr = write(txt_cp, buff, 1024);
-		if (wr < buffer)
+		wr = write(txt_cp, buff, rd);
+		if (wr == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
