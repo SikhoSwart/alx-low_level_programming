@@ -9,14 +9,11 @@
 int main(int argc, char *argv[])
 {
 	int txt, txt_cp;
-	ssize_t rd, wr;
+	ssize_t rd = 1024, wr;
 	char buff[1024];
 
-	rd = 1024;
 	if (argc != 3)
-	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	}
 	txt = open(argv[1], O_RDONLY);
 	if (txt == -1)
 	{
@@ -51,8 +48,7 @@ int main(int argc, char *argv[])
 	}
 	if (close(txt_cp) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt_cp);
-		exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", txt_cp, exit(100));
 	}
 	return (0);
 }
