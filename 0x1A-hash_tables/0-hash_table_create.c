@@ -23,6 +23,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (table->array == NULL)
 	{
 		return (NULL);
+		free(table);
 	}
 	for (i = 0; i < size; i++)
 	{
